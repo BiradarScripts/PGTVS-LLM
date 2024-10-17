@@ -1,0 +1,7 @@
+Here's an extractive summary following your instructions:
+
+* **[00:00:12]** Machine learning is a field of artificial intelligence that enables systems to learn from data.
+* **[00:00:25]** There are several types of machine learning: supervised, unsupervised, and reinforcement learning.
+* **[00:00:40]** Supervised learning involves labeled data, where the algorithm learns from input-output pairs.
+* **[00:00:50]** In unsupervised learning, the data is unlabeled, and the system tries to find patterns or structures.
+* **[00:01:05]** Reinforcement learning is about learning by trial and error, where the system receives rewards for correct actions. 
