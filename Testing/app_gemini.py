@@ -34,24 +34,28 @@ parser = StrOutputParser()
 
 chain = prompt | llm | parser
 
+def save_summary_to_file(output_file, content):
+    try:
+        with open(output_file, 'w', encoding='utf-8') as file:
+            file.write(content)
+        print(f"Summary has been written to {output_file}")
+    except Exception as e:
+        print(f"Failed to write summary to file: {e}")
+
 def main():
-    # Specify the path to your .txt file
-    file_path = "/workspaces/PGTVS-LLM/transcription.txt"
+    input_file = "transcript.txt"
+    output_file = "gemini_result.txt"  
 
     try:
-        # Read the content from the file
-        with open(file_path, 'r', encoding='utf-8') as file:
+        with open(input_file, 'r', encoding='utf-8') as file:
             input_text = file.read()
 
         if input_text:
-            # Execute the LLM with the file content
             result = chain.invoke({"text": input_text})
-
-            # Display the result
-            print(f"AI Summary:\n{result}\n")
+            save_summary_to_file(output_file, result)  
 
     except FileNotFoundError:
-        print(f"File not found: {file_path}. Please ensure the file exists.")
+        print(f"File not found: {input_file}. Please ensure the file exists.")
     except ConnectionError:
         print("Failed to connect to the service. Please ensure the service is running.")
     except Exception as e:
@@ -59,4 +63,3 @@ def main():
 
 if __name__ == "__main__":
     main()
- 
